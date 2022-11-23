@@ -31,13 +31,16 @@ window.onload = () => document.querySelector("button").focus();
 const drumKit = [];
 
 sounds.map(({ name, keybind }) => {
-  const btnEl = createButton(name, keybind);
+  const btnElement = createButton(name, keybind);
 
-  const spanEl = createSpan(keybind, btnEl);
+  const spanElement = createSpan(keybind, btnElement);
 
-  const audioEl = createAudio(`./sounds/${name.toLowerCase()}.wav`, keybind);
+  const audioElement = createAudio(
+    `./sounds/${name.toLowerCase()}.wav`,
+    keybind
+  );
 
-  drumKit.push(btnEl, audioEl);
+  drumKit.push(btnElement, audioElement);
 });
 
 appEl.append(...drumKit);
@@ -91,9 +94,9 @@ function audioSelector(key) {
 }
 
 function createAudio(src, key) {
-  const audioEl = new Audio(src);
+  const audioElement = new Audio(src);
 
-  audioEl.id = key;
+  audioElement.id = key;
 
-  return audioEl;
+  return audioElement;
 }
